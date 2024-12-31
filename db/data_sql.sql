@@ -11,7 +11,7 @@
         order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
-    --  Insert data into orders table
+    --  Insert Sample data into orders table
 
     INSERT INTO orders (order_id, user_id, quantity, delivery_address) VALUES\
     (1, 1, 2, '123 Main St'),
@@ -21,4 +21,18 @@
 CREATE Table IF NOT EXISTS categories(
     category_id INT PRIMARY KEY AUTOINCREMENT,
     category_name VARCHAR(255) NOT NULL
-)
+);
+
+--  Insert Sample data into categories table
+
+INSERT INTO categories(category_name) VALUES
+('Vegetarian'),
+('Non-Vegetarian'),
+('Vegan');
+
+CREATE TABLE IF NOT EXISTS items (
+    item_id INT AUTO_INCREMENT PRIMARY KEY,
+    item_name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    category_id INT
+);
