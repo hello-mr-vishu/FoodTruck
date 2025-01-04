@@ -52,4 +52,34 @@ CREATE TABLE IF NOT EXISTS order_items(
     Foreign Key (item_id) REFERENCES itmes(item_id)
 );
 
+-- Insert sample data into order_items table
+INSERT INTO order_items (order_id, items_id, quantity , price) VALUES
+(1,1,2,150.00),
+(2,2,1,100,00),
+(3,3,3,200.00);
+
+CREATE TABLE IF NOT EXISTS payments(
+    payment_id INT AUTOINCREMENT PRIMARY KEY,
+    order_id INT,
+    payment_method VARCHAR(50),
+    payment_status VARCHAR(50),
+    amount DECIMAL(10,2),
+    paid_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert sample data into payments table
+INSERT INTO payments(order_id , payment_method , payment_status, amount) VALUES
+(1,'Credit Card' , 'Paid' , 300.00),
+(2,'Debit Card', 'Paid', 100.00),
+(3,'GPay' , 'Pending' , 600.00);
+
+
+CREATE TABLE IF NOT EXISTS customers(
+    user_id INT PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    phone_number VARCHAR(15),
+    email VARCHAR(255)
+);
+
 
