@@ -36,3 +36,20 @@ CREATE TABLE IF NOT EXISTS items (
     price DECIMAL(10, 2) NOT NULL,
     category_id INT
 );
+
+--  Insert Sample data into items table
+INSERT INTO items(item_name , price , category_id) VALUES
+('Biryani', 150.00 , 2) -- non-vegetarian
+('Paneer',100.00 ,1) -- Vegetarian
+('Butter Chicken', 200.00 ,2) ; --Non- Vegetarian
+
+CREATE TABLE IF NOT EXISTS order_items(
+    order_item_id INT AUTOINCREMENT PRIMARY KEY,
+    order_id INT,
+    item_id INT,
+    quantity INT NOT NULL,
+    price DECIMAL(10,2),
+    Foreign Key (item_id) REFERENCES itmes(item_id)
+);
+
+
